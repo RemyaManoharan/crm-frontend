@@ -1,17 +1,27 @@
 import React from "react";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import { propTypes } from "react-bootstrap/esm/Image";
+import PropTypes from "prop-types";
 
+const Login = ({
+  handleOnChange,
+  handleOnSubmit,
+  email,
+  password,
+  formSwitcher,
+}) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleOnSubmit();
+  };
 
-const Login = ({handleOnChange,email,password}) => {
   return (
     <Container>
       <Row>
         <Col>
           <h1 className="text-center">Client Login</h1>
           <hr />
-          <Form>
+          <Form autoComplete="off" onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
@@ -38,23 +48,28 @@ const Login = ({handleOnChange,email,password}) => {
               Login
             </Button>
           </Form>
-          <hr/>
+          <hr />
         </Col>
       </Row>
       <Row>
         <Col>
-        <a href="">Forget password?</a>
+        <div onClick={() => formSwitcher("reset")}>
+          <a href="#!" >
+            Forget password?
+          </a>
+          </div>
         </Col>
       </Row>
-
     </Container>
   );
 };
-Login.propTypes = {
-    handleOnChange: propTypes.func.isRequired,
-    email: propTypes.string.isRequired,
-    password: propTypes.string.isRequired,
-}
 
+Login.propTypes = {
+  handleOnChange: PropTypes.func.isRequired,
+  handleOnSubmit: PropTypes.func.isRequired,
+  formSwitcher: PropTypes.func.isRequired,
+  email: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+};
 
 export default Login;
