@@ -26,7 +26,7 @@ const TicketTableComp = ({ tickets }) => {
             ))
           ) : (
             <tr>
-              <td>No tickets to show</td>
+              <td colspan="4" className="text-center">No tickets to show</td>
             </tr>
           )}
         </tbody>
