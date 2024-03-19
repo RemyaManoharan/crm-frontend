@@ -3,15 +3,21 @@ import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import BreadCrumbComp from "../../components/BreadCrumb/BreadCrumbComp";
 import AddTicketForm from "../../components/AddTicketForm/AddTicketForm";
-
+import { shortText } from "../../utils/validation";
 const initialFrmDt = {
   subject: "",
   issueDate: "",
   detail: "",
 };
-
+const initialError = {
+    subject: "",
+    issueDate: "",
+    detail: "",
+  };
 const AddTicketPage = () => {
   const [frmData, setFrmData] = useState(initialFrmDt);
+  const [frmDataError, setFrmDataError] = useState(initialError);
+  
   //useEffect(() => {}, [frmData]);
 
   const handleOnChange = (e) => {
@@ -24,8 +30,12 @@ const AddTicketPage = () => {
     console.log(name, value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+//     const isValid = await shortText(frmData.subject)
+// isValid && setFrmDataError((prevData) => ({
+// ...prevData, subject:isValid,
+// }))
     console.log("Form login submitted");
   };
   return (
