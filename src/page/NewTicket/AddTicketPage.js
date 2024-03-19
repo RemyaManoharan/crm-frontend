@@ -1,31 +1,51 @@
-import React from 'react';
-import {Container, Row,Col} from  'react-bootstrap';
-import BreadCrumbComp from '../../components/BreadCrumb/BreadCrumbComp';
-import AddTicketForm from '../../components/AddTicketForm/AddTicketForm';
+import React from "react";
+import { useState, useEffect } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import BreadCrumbComp from "../../components/BreadCrumb/BreadCrumbComp";
+import AddTicketForm from "../../components/AddTicketForm/AddTicketForm";
+
+const initialFrmDt = {
+  subject: "",
+  issueDate: "",
+  detail: "",
+};
 
 const AddTicketPage = () => {
-const handleOnChange = e => {
-    const {name,value} = e.target;
-    console.log(name,value)
-}
+  const [frmData, setFrmData] = useState(initialFrmDt);
+  //useEffect(() => {}, [frmData]);
 
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
 
+    setFrmData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+    console.log(name, value);
+  };
 
-    //const handleSubmit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form login submitted");
+  };
   return (
-   <Container>
-    <Row>
+    <Container>
+      <Row>
         <Col>
-        <BreadCrumbComp page="New Ticket"/>
+          <BreadCrumbComp page="New Ticket" />
         </Col>
-    </Row>
-    <Row>
-<Col>
-<AddTicketForm handleOnChange={handleOnChange}/>
-</Col>
-    </Row>
-   </Container>
-  )
-}
+      </Row>
+      <Row>
+        <Col>
+          <AddTicketForm
+            handleOnChange={handleOnChange}
+            frmData={frmData}
+            handleSubmit={handleSubmit}
+          />
+        </Col>
+      </Row>
+    </Container>
+  );
+};
 
-export default AddTicketPage
+export default AddTicketPage;

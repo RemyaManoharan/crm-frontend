@@ -1,56 +1,61 @@
 import React from "react";
 
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-
-const AddTicketForm = ({ handleSubmit, handleOnChange }) => {
-
+import PropTypes from "prop-types";
 
 
-
-
+const AddTicketForm = ({ handleSubmit, handleOnChange, frmData }) => {
+  console.log(frmData)
   return (
-    <div class="p-5 mb-4 bg-light rounded-5">
-      <div class="container bg-light p-5">
-        <Form autoComplete="off" class="col-md-8 fs-4" onSubmit={handleSubmit}>
-          <Form.Group as={Row} className="mb-4">
-            <Form.Label column sm={1}>Subject</Form.Label>
-            <Col sm={9}>
-            <Form.Control
-              type="text"
-              placeholder="Subject"
-              name="subject"
-              //value={email}
-              // onChange={handleOnChange}
-              required
-            />
-            </Col>
+    <div className="p-5 mb-4 bg-light rounded-5" style={{ maxWidth: "600px", margin: "0 auto"}}>
+      <div className="container bg-light p-5">
+        <Form
+          autoComplete="off"
+         
+          onSubmit={handleSubmit}
+        >
+          <Form.Group className="mb-4">
+            <Form.Label column sm={1}>
+              Subject
+            </Form.Label>
+          
+              <Form.Control
+                type="text"
+                placeholder="Subject"
+                name="subject"
+                value={frmData.subject}
+                onChange={handleOnChange}
+                required
+              />
+           
           </Form.Group>
 
-          <Form.Group as={Row} className="mb-1">
-            <Form.Label column sm={1}>Issue Found</Form.Label>
-            <Col sm={9}>
-            <Form.Control
-              type="date"
-              name="issueDate"
-              // value={password}
-              onChange={handleOnChange}
-              required
-            />
-            </Col>
-            
+          <Form.Group  className="mb-4">
+            <Form.Label column sm={1}>
+              Issue Found
+            </Form.Label>
+           
+              <Form.Control
+                type="date"
+                name="issueDate"
+                value={frmData.issueDate}
+                onChange={handleOnChange}
+                required
+              />
+           
           </Form.Group>
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-4">
             <Form.Label>Details</Form.Label>
             <Form.Control
               as="textarea"
-              name="details"
+              name="detail"
               rows="5"
-              // value={password}
+              value={frmData.detail}
               onChange={handleOnChange}
               required
             />
           </Form.Group>
-          <Button variant="info" type="submit" block>
+          <Button variant="info" type="submit">
             Login
           </Button>
         </Form>
@@ -58,5 +63,9 @@ const AddTicketForm = ({ handleSubmit, handleOnChange }) => {
     </div>
   );
 };
-
+AddTicketForm.propTypes = {
+  handleSubmit : PropTypes.func.isRequired,
+  handleOnChange:PropTypes.func.isRequired ,
+  frmData : PropTypes.object.isRequired ,
+};
 export default AddTicketForm;
