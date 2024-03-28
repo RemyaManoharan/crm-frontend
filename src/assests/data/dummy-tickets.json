@@ -1,56 +1,67 @@
 [
     {
         "id" :1,
+        "subject" :"Issue with ssl ",
         "status":"Client response pending",
         "addedAt":"2023-12-19"
     },
     {
         "id" :2,
+        "subject" :"Issue with dhg",
         "status":"Client response pending",
         "addedAt":"2023-11-19"
     },
     {
         "id" :3,
+        "subject" :"problem with ssl ",
         "status":"Client response pending",
         "addedAt":"2023-12-20"
     },
     {
         "id" :4,
+        "subject" :"email certificate expires",
         "status":"Client response pending",
         "addedAt":"2023-12-11"
     },
     {
         "id" :5,
+        "subject" :"issue app crashing",
         "status":"Client response pending",
         "addedAt":"2023-12-01"
     },
     {
         "id" :6,
+        "subject" :"server not responding",
         "status":"Client response pending",
         "addedAt":"2023-12-15"
     },
     {
         "id" :7,
+        "subject" :"network issue",
         "status":"Client response pending",
         "addedAt":"2023-12-20"
     },
     {
         "id" :8,
+        "subject" :"api not responding",
         "status":"Client response pending",
         "addedAt":"2023-12-27"
     },
     {
         "id" :9,
+        "subject" :"slow data fetching",
         "status":"Client response pending",
         "addedAt":"2023-11-10"
     },
     {
         "id" :10,
+        "subject" :"unexpected collpase of ui",
         "status":"Client response pending",
         "addedAt":"2023-11-29"
     },
     {
         "id" :11,
+        "subject" :"problem with router",
         "status":"Client response pending",
         "addedAt":"2023-12-21"
     }

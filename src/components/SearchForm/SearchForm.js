@@ -3,7 +3,7 @@ import { Form, Row, Col } from "react-bootstrap";
 
 import PropTypes from 'prop-types'; 
 
-const SearchForm = ({ handleOnChange, str}) => {
+const SearchForm = ({ handleOnChange, searchString}) => {
   return (
     <div>
       <Form>
@@ -16,7 +16,7 @@ const SearchForm = ({ handleOnChange, str}) => {
               <Form.Control name="searchStr" 
               placeholder="Search" 
               onChange={handleOnChange}
-              value={str}
+              value={searchString}
               />
             </Col>
           </Form.Group>
