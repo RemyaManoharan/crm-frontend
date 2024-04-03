@@ -1,0 +1,10 @@
+.ticket-container {
+    max-width :50%;
+   
+}
+.summary-container{
+    display: flex;
+    flex-direction: column;
+    gap:0.5rem;
+    font-weight: 700;
+}
